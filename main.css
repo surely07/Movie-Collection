@@ -1,0 +1,19 @@
+.main {
+    color: white;
+    height: 350px;
+
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    width: 300vw;
+    transition: transform 0.5s;
+}
+
+.poster {
+    width: 100vw;
+    float: left;
+    height: 350px;
+}
+
