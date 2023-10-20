@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영화 검색</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/img/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Movie Collection</title>
 </head>
+
 <body>
-    <h1>영화 검색</h1>
-    <input type="text" id="searchInput" placeholder="영화 제목 입력">
-    <button id="searchButton">검색</button>
-    <div id="movieList"></div>
+    <div class="main">
+        <h1>Movie Collection</h1>
+        <!---검색창 시작-->
+        <div id="search" class="search_area">
+            <input id="search-input" type="text" maxlength="255" class="input_text" autocomplete="off"
+                placeholder="영화 제목을 검색해 보세요" />
+            <button id="search_btn" type="submit">검색</button>
+        </div>
+        <!---검색창 끝-->
+    </div>
+
+
+    <div class="movies-list" id="movies-container">
+        <div class="movie-card" id="movieInfo">
+        </div>        
+    </div>
+
 
     <script src="script.js"></script>
+
 </body>
+
 </html>

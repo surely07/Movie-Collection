@@ -1,9 +1,9 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
-    font-family: 'Noto Sans KR', sans-serif;
+
 
 body {
     background-color: beige;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .main {
@@ -23,31 +23,53 @@ body {
     background-size: cover;
 }
 
-.cards {
-    background-color: blue;
-    width: 1500px;
-    margin: 30px auto 10px auto;
+.input_text {
+    width: 300px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
 }
 
-.col {
-    background-color: green;
-    width: 200px;
-    height: 300px;
-    margin: 20px auto 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-
-
-
-.search-container .suggestions-container {
-    position: absolute;
-    top: 40px;
-    left: -65px;
-    padding-top: 10px;
-    background-color: var(--color-white);
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+.search_area>button {
+    width: 100px;
+    height: 37px;
+    background-color: white;
+    color: black;
     border-radius: 3px;
-    z-index: 1;
+}
+
+.movies-list {
+    background-color: rgb(180, 166, 166);
+    width: 1500px;
+    height: 100%;
+    border-radius: 10px;
+
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr); */
+    justify-content: center;
+    margin: 40px auto 20px auto;
+
+    display: flex;
+}
+
+
+.movie-card {
+    background-color: rgb(204, 204, 204);
+    width: 250px;
+    height: 450px;
+    border-radius: 10px;
+
+    padding: 25px;
+
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns: repeat(5, 1fr);
+    border: 20px;
+    
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    justify-content: center;
 }

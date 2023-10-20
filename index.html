@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../movie collection/style.css">
-    <link rel="icon" href="../movie collection/img/icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/img/icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -15,35 +16,26 @@
 </head>
 
 <body>
-    <script src="main.js"></script>
-
-
     <div class="main">
-        <div>
-            <h1>Movie Collection</h1>
-        </div>
+        <h1>Movie Collection</h1>
         <!---검색창 시작-->
         <div id="search" class="search_area">
-            <input id="query" name="query" type="text" maxlength="255" class="input_text" tabindex="1"
-                autocomplete="off" placeholder="검색어를 입력해 주세요." />
-            <button id="search_btn" type="submit" title="검색" tabindex="3" class="btn_submit">
-                <span class="blind">검색</span>
-            </button>
+            <input id="search-input" type="text" maxlength="255" class="input_text" autocomplete="off"
+                placeholder="영화 제목을 검색해 보세요" />
+            <button id="search_btn" type="submit">검색</button>
         </div>
         <!---검색창 끝-->
     </div>
 
-    <div id="movieCards" class="cards">
-        <div class="row row-cols-1 row-cols-md-5 g-4">
-            <div class="col">
-                <header>
-                    <p id="title">영화제목</p>
-                </header>
-                <img id="image" src="/img/1.jpg">
-                <p>영화내용</p>
-            </div>
-        </div>
+
+    <div class="movies-list" id="movies-container">
+        <div class="movie-card" id="movieInfo">
+        </div>        
     </div>
+
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>

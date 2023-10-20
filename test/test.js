@@ -1,57 +1,41 @@
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzUzMjBkNzY3YzgwZGEwZDU0ZDlkMjQxMjdlOWVkOSIsInN1YiI6IjY1MmZjOGM3MzU4ZGE3NWI2MWZhMDRlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uj9aWONZob_7Jpf-N2mmPcPhP4I0g9jVTWaqGFETuaE'
+    }
+};
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("searchInput");
-    const searchButton = document.getElementById("searchButton");
-    const movieList = document.getElementById("movieList");
 
-    searchButton.addEventListener("click", function () {
-        const searchTerm = searchInput.value;
-        // 사용자 입력을 검색어로 TMDb API에 보내고 결과를 처리하는 코드를 작성하세요.
-    });
-});
+fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+    .then(response => response.json())
+    .then((response) => {
+        console.log(response);
+        const result = response.results;
+        result.forEach((movie) => {
+            addMovie(movie);
+        });
+    })
+    .then(() => { // 이걸 몰라서 고통받음.
+        searchMovie();
+    })
+    .catch((err) => console.error(err));
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("searchInput");
-    const searchButton = document.getElementById("searchButton");
-    const movieList = document.getElementById("movieList");
+function searchMovie() {
+    const movieCard = movieCards.querySelectorAll(".movie-card");
+    const searchValue = document.getElementById("search__value");
+    const searchBtn = document.querySelector(".search__btn");
 
-    const apiKey = '835320d767c80da0d54d9d24127e9ed9';
-
-    searchButton.addEventListener("click", function () {
-        const searchTerm = searchInput.value;
-        
-        if (searchTerm.trim() === "") {
-            alert("검색어를 입력하세요.");
-            return;
-        }
-
-        const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                movieList.innerHTML = ''; // 이전 검색 결과를 지우기
-
-                const movies = data.results;
-
-                if (movies.length === 0) {
-                    movieList.innerHTML = '검색 결과가 없습니다.';
-                    return;
-                }
-
-                movies.forEach(movie => {
-                    const movieItem = document.createElement("div");
-                    movieItem.innerHTML = `
-                        <h2>${movie.title}</h2>
-                        <p>개봉일: ${movie.release_date}</p>
-                        <p>평점: ${movie.vote_average}</p>
-                        <p>${movie.overview}</p>
-                    `;
-                    movieList.appendChild(movieItem);
-                });
-            })
-            .catch(error => {
-                console.error('에러:', error);
-            });
-    });
-});
+    function handleSearch(e) {
+        e.preventDefault();
+        let value = searchValue.value;
+        movieCard.forEach((element) => {
+            element.classList.remove("hidden");
+            let movieTitle = element.childNodes[2].childNodes[1].innerText;
+            if (!movieTitle.toLowerCase().includes(value)) {
+                element.classList.add("hidden");
+            }
+        });
+    }
+    searchBtn.addEventListener("click", handleSearch);
+}
