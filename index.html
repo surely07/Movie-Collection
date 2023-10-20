@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../movie collection/main.css">
+    <link rel="stylesheet" href="../movie collection/style.css">
+    <link rel="icon" href="../movie collection/img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Movie Collection</title>
 </head>
@@ -12,45 +17,33 @@
 <body>
     <script src="main.js"></script>
 
-    <div class="main" style="overflow: hidden;">
 
-        <div class="container">
-            <div>
-                <hi>Movie Collection</hi>
-            </div>
-            <div>
-                <button class="btn1">1</button>
-                <button class="btn2">2</button>
-                <button class="btn3">3</button>
-            </div>
+    <div class="main">
+        <div>
+            <h1>Movie Collection</h1>
+        </div>
+        <!---검색창 시작-->
+        <div id="search" class="search_area">
+            <input id="query" name="query" type="text" maxlength="255" class="input_text" tabindex="1"
+                autocomplete="off" placeholder="검색어를 입력해 주세요." />
+            <button id="search_btn" type="submit" title="검색" tabindex="3" class="btn_submit">
+                <span class="blind">검색</span>
+            </button>
+        </div>
+        <!---검색창 끝-->
+    </div>
 
-            <div class="poster">
-                <img src="../movie collection/img/4.jpg">
-            </div>
-            <div class="poster">
-                <img src="../movie collection/img/5.jpg">
-            </div>
-            <div class="poster">
-                <img src="../movie collection/img/6.jpg">
+    <div id="movieCards" class="cards">
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col">
+                <header>
+                    <p id="title">영화제목</p>
+                </header>
+                <img id="image" src="/img/1.jpg">
+                <p>영화내용</p>
             </div>
         </div>
     </div>
-
-
-    <script>
-        document.querySelector('.btn2').addEventListener('click', function () {
-            document.querySelector('.container').style.transform = 'translate(-100vw)';
-        });
-
-        document.querySelector('.btn3').addEventListener('click', function () {
-            document.querySelector('.container').style.transform = 'translate(-200vw)';
-        });
-
-        document.querySelector('.btn1').addEventListener('click', function () {
-            document.querySelector('.container').style.transform = 'translate(-0vw)';
-        });
-    </script>
-
 </body>
 
 </html>

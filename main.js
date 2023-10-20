@@ -13,11 +13,19 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
   .catch(err => console.error(err));
 // 영화DB 끝
 
-// 타이틀 버튼 슬라이드
-document.querySelector('.btn2').addEventListener('click', function () {
-  document.querySelector('.container').style.transform = 'translate(-100vw)';
-});
 
-document.querySelector('.btn3').addEventListener('click', function () {
-  document.querySelector('.container').style.transform = 'translate(-200vw)';
-});
+<ul>
+  {data ? (
+   data.results.map((movie) => (
+     <li key={movie.id}>
+       <img src={getImageUrl(movie.poster_path)}
+            alt="movie poster"
+       />
+       <p>{movie.title}</p>
+       <p>{movie.vote_average}</p>
+	</li>
+   ))
+  ) : (
+  <h1>Loading...</h1>
+  )}
+</ul>
