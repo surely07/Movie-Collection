@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
+body,html {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background-color: beige;
@@ -7,9 +11,6 @@ body {
 }
 
 .main {
-    color: white;
-    text-shadow: 0 0 15px black;
-
     height: 350px;
 
     display: flex;
@@ -23,9 +24,16 @@ body {
     background-size: cover;
 }
 
+.main>h1 {
+    color: white;
+    text-shadow: 0 0 15px black;
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
 .input_text {
     width: 300px;
-    height: 30px;
+    height: 35px;
     background-color: transparent;
     color: white;
     border: 1px solid white;
@@ -33,43 +41,63 @@ body {
 
 .search_area>button {
     width: 100px;
-    height: 37px;
+    height: 40px;
     background-color: white;
     color: black;
     border-radius: 3px;
+    margin-left: 3px;
 }
 
-.movies-list {
+.movie-container {
     background-color: rgb(180, 166, 166);
-    width: 1500px;
+    width: 1600px;
     height: 100%;
+    margin: 50px auto 20px auto;
+    padding: 50px;
     border-radius: 10px;
 
-    /* display: grid;
-    grid-template-columns: repeat(5, 1fr); */
     justify-content: center;
-    margin: 40px auto 20px auto;
 
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-
 
 .movie-card {
-    background-color: rgb(204, 204, 204);
+    background-color: #ddd;
     width: 250px;
-    height: 450px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
     border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
 
-    padding: 25px;
-
-    display: grid;
-    gap: 20px;
-
-    grid-template-columns: repeat(5, 1fr);
-    border: 20px;
-    
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
-    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
+.movie-card:hover {
+    transform: scale(1.05);
+  }
+
+  .movie-card>img {
+    display: block;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .movie-card h2 {
+    margin: 5px auto;
+    font-size: 27px;
+  }
+
+  .movie-card>h5 {
+    text-align: righte;
+    margin: 35px 0 0 0;
+    font-size: 18px;
+    color: #f39c12;
+  }
+
+  .movie-card>p {
+    font-size: 14px;
+  }

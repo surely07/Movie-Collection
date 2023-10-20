@@ -17,7 +17,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    background-image: url(img/9.jpg);
+    background-image: url(/img/8.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -40,28 +40,34 @@ body {
 }
 
 .movies-list {
-    background-color: blue;
-    width: 1500px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: center;
+    background-color: rgb(180, 166, 166);
+    width: 1800px;
+    height: 100%;
     margin: 40px auto 20px auto;
+    border-radius: 10px;
+    
+    justify-content: center;
+    
+    display: grid;
+    /* gap: 5px; */
+    grid-template-columns: repeat(5, 1fr);
 
-    display: flex;
+    /* display: flex; */
 }
 
 
-.movie-card {
+/* .movie-card {
     background-color: rgb(204, 204, 204);
     width: 250px;
     height: 450px;
     border-radius: 10px;
 
     padding: 25px;
-    margin: 0 auto 0 auto;
 
-    display:inline-table;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    border: 20px;
+    
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    /* justify-content: center;
+} */

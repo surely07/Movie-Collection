@@ -1,42 +1,41 @@
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzUzMjBkNzY3YzgwZGEwZDU0ZDlkMjQxMjdlOWVkOSIsInN1YiI6IjY1MmZjOGM3MzU4ZGE3NWI2MWZhMDRlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uj9aWONZob_7Jpf-N2mmPcPhP4I0g9jVTWaqGFETuaE'
-    }
-  };
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzUzMjBkNzY3YzgwZGEwZDU0ZDlkMjQxMjdlOWVkOSIsInN1YiI6IjY1MmZjOGM3MzU4ZGE3NWI2MWZhMDRlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uj9aWONZob_7Jpf-N2mmPcPhP4I0g9jVTWaqGFETuaE'
+  }
+};
 
 
 
 fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
   .then(response => response.json())
-  .then(a => {
-    let result = a.results
-    result.forEach((a) => {
-      const img = 'https://image.tmdb.org/t/p/w300' + a['poster_path'];
-      const title = a['title'];
-      const va = a['vote_average'];
-      const overview = a['overview'];
-      const idA = a['id'];
+  .then(data => {
+    const moviesContainer = document.getElementById('movies-container');
 
+    data.results.forEach(movie => {
       const card = document.createElement('div');
-      const imgEle = document.createElement('img');
-      const titleEle = document.createElement('h2');
-      const vaEle = document.createElement('h5');
-      const explEle = document.createElement('p');
+      card.classList.add('movie-card');
 
-      imgEle.src = img;
-      titleEle.textContent = title;
-      vaEle.textContent = va;
-      explEle.textContent = overview;
+      const img = document.createElement('img');
+      img.src = 'https://image.tmdb.org/t/p/w300' + movie['poster_path'];
 
-      card.append(imgEle, titleEle, vaEle, explEle);
+      const title = document.createElement('h2');
+      title.textContent = movie['title'];
 
-      document.getElementById('movieInfo').append(card);
+      const rating = document.createElement('h5');
+      rating.textContent = '⭐ Rating: ' + movie['vote_average'];
+
+      const overview = document.createElement('p');
+      overview.textContent = movie['overview'];
+
+      card.append(img, rating, title, overview);
+      moviesContainer.appendChild(card);
+
       card.addEventListener('click', () => {
-        alert("That Movie's ID is : " + idA + " , Thank you");
+        alert("Movie's ID : " + movie['id']);
       });
-    })
+    });
   })
   .catch(err => console.error(err));
 
@@ -45,23 +44,33 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
 
 
+// // 검색기능 구현
+// const searchInput = document.getElementById('search-input');
+// const searchButton = document.getElementById('search-btn');
+// const movieCards = document.querySelectorAll('.movie-card');
 
-// function addMovie(movie) {
-//   const div = document.createElement("div")
-//   div.classList.add("movieInfo")
+// function performSearch() {
+//   const searchText = searchInput.value.toLowerCase();
+//   const title = card.querySelector('h2').textContent.toLowerCase();
+
+//   movieCards.forEach(card => {
+//     if (title.includes(searchText)) {
+//       card.style.display = 'block';
+//     } else {
+//       card.style.display = 'none';
+//     }
+//   })
 // }
 
+// // 검색 버튼 클릭시 함수 실행
+// searchButton.addEventListener('click', function () {
+//   console.log("확인")
+//   performSearch();
+// });
 
-
-// div.innerHTML = `<div class="movie-card__poster">
-//   <img src=https://image.tmdb.org/t/p/w500${poster_path} /></div>
-// <div class="movie-card__content">
-//   <div class="movie-card__title">${movie.title}</div>
-//   <div class="movie-card__overview">${movie.overview}</div>
-//   <div class="movie-card__vote-average">Ratings : ${movie.vote_average}</div>
-// </div>`;
-
-
-//   div.addEventListener("click", () => alert(`영화 id : ${movie.id}`));
-//   div.id = movie.id;
-//   movieCards.append(div);
+// // 인풋 상자에서 엔터키 누르면 검색 실행
+// searchInput.addEventListener('keydown', function (event) {
+//   if (event.key === 'Enter') {
+//     performSearch();
+//   }
+// });
