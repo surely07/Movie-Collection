@@ -62,7 +62,7 @@ function performSearch() {
 }
 
 searchButton.addEventListener('click', function () {
-  performSearch();
+  performSearch()
 });
 
 searchInput.addEventListener('keydown', function (event) {
