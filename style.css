@@ -1,103 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
 
-body,html {
-    margin: 0;
-    padding: 0;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: rgb(247, 244, 244);
-    font-family: 'Noto Sans KR', sans-serif;
+  background-color: rgb(247, 244, 244);
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .main {
-    height: 350px;
+  height: 350px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    background-image: url(img/9.jpg);
-    background-repeat: no-repeat;
-    background-position: center right;
-    background-size: cover;
+  background-image: url(img/9.jpg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
 }
 
-.main>h1 {
-    color: white;
-    text-shadow: 0 0 15px black;
-    font-size: 55px;
-    margin-bottom: 20px;
+.main > h1 {
+  color: white;
+  text-shadow: 0 0 15px black;
+  font-size: 55px;
+  margin-bottom: 20px;
 }
 
 .input-text {
-    width: 300px;
-    height: 33px;
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
+  width: 300px;
+  height: 33px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
-.search_area>button {
-    width: 100px;
-    height: 40px;
-    background-color: white;
-    color: black;
-    border-radius: 3px;
-    margin-left: 3px;
+.search_area > button {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  margin-left: 3px;
 }
 
 .movie-container {
-    background-color: rgb(180, 166, 166);
-    width: 85%;
-    height: 100%;
-    margin: 40px auto 10px auto;
-    padding: 40px;
-    border-radius: 10px;
+  background-color: rgb(180, 166, 166);
+  width: 85%;
+  height: 100%;
+  margin: 40px auto 10px auto;
+  padding: 40px;
+  border-radius: 10px;
 
-    justify-content: center;
+  justify-content: center;
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .movie-card {
-    background-color: rgb(245, 243, 243);
-    width: 250px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: rgb(245, 243, 243);
+  width: 250px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
 
-    cursor: pointer;
-    transition: transform 0.2s;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .movie-card:hover {
-    transform: scale(1.05);
-  }
+  transform: scale(1.05);
+}
 
-  .movie-card>img {
-    display: block;
-    max-width: 100%;
-    border-radius: 10px;
-  }
+.movie-card > img {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+}
 
-  .movie-card h2 {
-    margin: 5px auto;
-    font-size: 27px;
-  }
+.movie-card h2 {
+  margin: 15px auto;
+  font-size: 27px;
+  font-weight: 500;
+}
 
-  .movie-card>h5 {
-    text-align: righte;
-    margin: 35px 0 0 0;
-    font-size: 18px;
-    color: #f39c12;
-  }
+.movie-card > h5 {
+  margin: 35px 0 0 0;
+  font-size: 18px;
+  color: #f39c12;
+}
 
-  .movie-card>p {
-    font-size: 14px;
-  }
+.movie-card > p {
+  margin: 30px 0 0 0;
+  font-size: 14px;
+  line-height: 1.2rem;
+}
